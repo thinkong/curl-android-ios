@@ -1,5 +1,5 @@
 #!/bin/bash
-TARGET=android-9
+TARGET=android-19
 
 real_path() {
   [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
@@ -65,7 +65,8 @@ if [ ! -x "$CURLPATH/configure" ]; then
 	fi
 fi
 
-export SYSROOT="$NDK_ROOT/platforms/$TARGET/arch-arm"
+# export SYSROOT="$NDK_ROOT/platforms/$TARGET/arch-arm"
+export SYSROOT="/Users/nokdu/androidstandalone/sysroot"
 export CPPFLAGS="-I$NDK_ROOT/platforms/$TARGET/arch-arm/usr/include --sysroot=$SYSROOT"
 export CC=$($NDK_ROOT/ndk-which gcc)
 export LD=$($NDK_ROOT/ndk-which ld)
